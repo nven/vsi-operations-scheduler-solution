@@ -3,10 +3,22 @@ variable "ibmcloud_api_key" {
   type        = string
 }
 
+variable "scheduler_namespace_name" {
+  description = "Instance Scheduler Namespace Name"
+  type        = string
+  default     = "instance_scheduler"
+}
+
+variable "use_existing_namespace" {
+  description = "Option to use existing namespace"
+  type        = bool
+  default     = false
+}
+
 variable "resource_group" {
   description = "Resource group name"
   type        = string
-  default     = "default"
+  default     = "Default"
 }
 
 variable "inventories" {

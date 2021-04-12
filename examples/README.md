@@ -9,9 +9,11 @@ This example illustrates how to use the `instance_scheduler` module.
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | ibmcloud_api_key | API key of the user | string | n/a | yes |
-| resource_group | The name of the resource group under which the resources of the instance scheduler will be created | string | n/a | yes |
-| inventories | User defined environment containing list of VSI ip's | map(object({<br>instance_ip_list = list(string)<br>})) | n/a | yes |
-| schedules | User provided schedules with environment details and action to be performed|  map(object({<br>cron = string<br>action = start \| stop<br>env = string<br>enabled = bool<br>})) | n/a | yes |
+| scheduler_namespace_name | Name of the instance scheduler namespace | string | instance_scheduler | no |
+| use_existing_namespace | Option whether to create or use existing namespace | bool | false | no |
+| resource_group | The name of the resource group under which the resources of the instance scheduler will be created | string | Default | no |
+| inventories | User defined environment containing list of VSI ip's | map(object({<br>instance_ip_list = list(string)<br>})) |{ <br>&nbsp;dev = {<br>&nbsp;&nbsp;instance_ip_list = [<br>&nbsp;&nbsp;&nbsp;"10.240.64.4"<br>&nbsp;&nbsp;]<br>&nbsp;}<br> }| yes |
+| schedules | User provided schedules with environment details and action to be performed|  map(object({<br>cron = string<br>action = start \| stop<br>env = string<br>enabled = bool<br>})) | {<br>&nbsp;dev_7am_start_everyday = {<br>&nbsp;&nbsp;cron = "0 7 * * *"<br>&nbsp;&nbsp;action = "start"<br>&nbsp;&nbsp;env = "dev"<br>&nbsp;&nbsp;enabled = true<br>&nbsp;&nbsp;}<br><br>&nbsp;dev_11pm_stop_everyday = {<br>&nbsp;&nbsp;cron = "0 23 * * *"<br>&nbsp;&nbsp;action = "stop"<br>&nbsp;&nbsp;env = "dev"<br>&nbsp;&nbsp;enabled = true<br>&nbsp;&nbsp;}<br>} | yes |
 
 Notes
 
@@ -36,7 +38,7 @@ terraform apply -var-file="input.tfvars"
 * Select Terraform version as terraform_v0.14
 * Save template information
 * Set the API Key
-* Override the input variables as per your requirements and ensure you enter the values in `HCL2` format (The same format used in tfvars variables)
+* Override the input variables as per your requirements and ensure you enter the values in `HCL2` format (The same format as used in tfvars variables)
 * Generate / Apply Plan 
 
 ## Note

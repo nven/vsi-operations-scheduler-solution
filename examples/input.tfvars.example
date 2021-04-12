@@ -1,6 +1,6 @@
 ibmcloud_api_key=""
 
-resource_group = "default"
+resource_group = "Default"
 
 inventories = {
     dev = {

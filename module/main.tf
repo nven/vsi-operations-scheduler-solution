@@ -5,7 +5,8 @@ data "ibm_resource_group" "resource_group" {
 module "instance_scheduler_namespace" {
   source = "terraform-ibm-modules/function/ibm//modules/namespace"
 
-  name = "instance_scheduler_namespace"
+  name = var.scheduler_namespace_name
+  action = (var.use_existing_namespace ? "get" : "create")
   description = "This namespace is used by the scheduler"
   resource_group_id = data.ibm_resource_group.resource_group.id
 }
