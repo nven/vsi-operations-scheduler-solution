@@ -26,8 +26,10 @@ The user can provide the VSI IP list, Cron schedule and the action in the terraf
 
 * If you are a delegated user invited as part of a different account
   * Ensure the user account has the required permissions to create IBM Cloud Functions in the account.
-  * Ensure the user account has permissions to create and change IAM policies in the account as this is required to provide access to IBM Cloud Schematics and IS services.
-  * The above permissions can be granted by the account owner / administrator
+  * Ensure the user account has permissions to create and change IAM policies in the account as this is required to provide access to the service id for IBM Cloud Schematics and IS services.
+  * Ensure the user account has the required permission to create workspaces / actions(Manager)
+  * Ensure the user account has the permissions to perform actions on the VSI(Editor)
+  * The above permissions can be granted by the owner / administrator of the account
   
 * If you are the account owner, No specifc steps are required to setup the permissions.
 
