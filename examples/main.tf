@@ -3,7 +3,7 @@ provider "ibm" {
 }
 
 module "instance_scheduler" {
-    source = "git::https://github.com/Cloud-Schematics/terraform-ibm-instance-scheduler//module"
+    source = "git::https://github.com/Cloud-Schematics/vsi-operations-scheduler-solution//module"
 
     ibmcloud_api_key = var.ibmcloud_api_key
 

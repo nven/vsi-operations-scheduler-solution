@@ -34,7 +34,7 @@ terraform apply -var-file="input.tfvars"
 ## Usage - IBM Cloud Schematics Console
 
 * Create a schematics workspace
-* In the `Import your Terraform template` page, Enter the repo URL of this example https://github.com/Cloud-Schematics/terraform-ibm-instance-scheduler/tree/master/examples
+* In the `Import your Terraform template` page, Enter the repo URL of this example https://github.com/Cloud-Schematics/vsi-operations-scheduler-solution/tree/master/examples
 * Select Terraform version as terraform_v0.14
 * Save template information
 * Set the API Key
