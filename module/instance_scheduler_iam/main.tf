@@ -18,6 +18,7 @@ resource "null_resource" "unlock_service_id" {
 
 module "solutions_iam_service_policy" {
   source = "terraform-ibm-modules/iam/ibm//modules/service-policy"
+  version = "1.0.1"
 
   for_each = var.iam_access_policy
 
