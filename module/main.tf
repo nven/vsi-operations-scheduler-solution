@@ -12,14 +12,14 @@ module "instance_scheduler_namespace" {
 }
 
 module "instance_scheduler_action" {
-  source = "git::https://github.com/Cloud-Schematics/vsi-operations-scheduler-solution//lib/terraform-ibm-action"
+  source = "git::https://github.com/nven/vsi-operations-scheduler-solution//lib/terraform-ibm-action"
 
   inventories = var.inventories
 
   actions = {
     SchedulerVSIAction = {
       namespace = module.instance_scheduler_namespace.name
-      action_repo_url = "https://github.com/Cloud-Schematics/ansible-is-instance-actions"
+      action_repo_url = "https://github.com/nven/ansible-is-instance-actions"
       action_yml_map = {
         start = "start-vsi-playbook.yml"
         stop = "stop-vsi-playbook.yml"

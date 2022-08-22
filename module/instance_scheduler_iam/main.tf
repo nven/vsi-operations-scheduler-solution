@@ -28,7 +28,7 @@ module "solutions_iam_service_policy" {
       service = ( each.key != "resource_group" ? each.key : null )
       region = null
       attributes = null
-      resource_group_id = null
+      resource_group_id = ( each.key != "is" ? null : var.resource_group_id )
       resource = ( each.key != "resource_group" ? null : var.resource_group_id )
       resource_type = ( each.key != "resource_group" ? null : "resource-group" )
       resource_instance_id = null

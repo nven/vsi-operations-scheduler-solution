@@ -3,7 +3,7 @@ provider "ibm" {
 }
 
 module "instance_scheduler" {
-    source = "git::https://github.com/Cloud-Schematics/vsi-operations-scheduler-solution//module"
+    source = "../module"
 
     ibmcloud_api_key = var.ibmcloud_api_key
 
