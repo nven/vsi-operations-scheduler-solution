@@ -50,12 +50,6 @@ def find_instance_group_action(action_name):
                 return action
     return None
 
-def input_object(ip):
-    return {
-        'name' : 'instance_ip',
-        'value' : ip
-    }
-
 def genHash(repo_url, env_name, ip_list):
     m = hashlib.md5()
     m.update(repo_url.encode('utf-8'))
@@ -118,7 +112,10 @@ def main(params):
             },
             source_readme_url = "",
             source_type = "GitHub",
-            inputs = map(input_object, inventories[env_name]['instance_ip_list'])
+            inputs = [{
+                'name' : 'instance_ip_list',
+                'value' : ",".join(inventories[env_name]['instance_ip_list'])
+            }]
         )
 
         if response.get_status_code() == 201:
